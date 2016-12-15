@@ -11,7 +11,7 @@ object MinimumSubSequenceGenerator extends App {
     array(z) = scan.nextInt();
   }
   
-  System.out.println(minimumPositiveSubSequence(array));
+  System.out.println(calculateMaxSubsequenceProduct(array));
   
   def minimumSubSequence(arr:Array[Int]):Int = {
     
@@ -51,6 +51,40 @@ object MinimumSubSequenceGenerator extends App {
       twoDimension(start)(end) = calculateSumOfNumbersFromAndTo(start, end -1 ,arr, twoDimension) + arr(end);
     }
     return twoDimension(start)(end)
+  }
+  
+  def calculateMaxSubsequenceProduct(arr:Array[Int]):Int = {
+    
+    var max_curr_prod = 1;
+    var min_curr_prod = 1
+    
+    var max_overall_prod = 1;
+    
+    for(a <- 0 to arr.length - 1) {
+      
+      if(arr(a) > 0) {
+        
+        max_curr_prod = max_curr_prod* arr(a);
+        min_curr_prod = scala.math.min(1, min_curr_prod * arr(a));
+      }
+      else if (arr(a) == 0)
+      {
+       var max_curr_prod = 1;
+       var min_curr_prod = 1
+      }
+      else
+      {
+        val temp = max_curr_prod
+        max_curr_prod = scala.math.max(1,min_curr_prod * arr(a));
+        min_curr_prod = temp * arr(a)
+      }
+      
+      if(max_overall_prod < max_curr_prod) max_overall_prod = max_curr_prod;
+    }
+    
+    
+    
+    return max_overall_prod;
   }
   
 }
