@@ -1,11 +1,6 @@
+package algo
 
-
-package ds.application
-
-object FastExponentiation extends App {
-  
-  
-  System.out.println(powerOf(4,4))
+object FastExponentiation {
   
   def powerOf(a:Int, b:Int):Int = {
     
