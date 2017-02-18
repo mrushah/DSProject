@@ -1,4 +1,4 @@
-package ds.application
+package algo
 
 import java.util.Scanner
 
