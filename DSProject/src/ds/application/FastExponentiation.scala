@@ -1,5 +1,7 @@
 
 
+package ds.application
+
 object FastExponentiation extends App {
   
   

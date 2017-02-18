@@ -1,3 +1,5 @@
+package ds.application
+
 import scala.util.Random
 
 

@@ -1,3 +1,5 @@
+package ds.application
+
 import java.util.Scanner
 
 
